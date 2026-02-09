@@ -1,0 +1,344 @@
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 5%;
+            
+            height: 100vh;
+            
+            color: rgb(203, 227, 248);
+            font-family: "Roboto", sans-serif;
+            
+            background-image: url(wonderful-polynesian-landscape_23-2151913458.avif);
+            background-size: cover ;
+            background-repeat: none;
+        }
+        /* шапка и навигац. */
+        .start {
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            text-align: center;
+
+            width: 70%;
+            height: 25vh; 
+            padding: 2%;
+            border-radius: 5px;
+
+            background-color: rgba(41, 55, 62, 0.929); 
+        }
+
+        h1 {
+            margin: 0;
+            font-size:calc(35px + 65 *(100vw - 320px) / 880);
+            /* нашла эту конструкция на просторах интернета. решила поэксперементировать
+            так как не знаю как лучше */
+        }
+
+       nav{
+            display: flex; 
+            justify-content: space-between;
+
+            width: 250px; 
+            padding: 1rem; 
+            border-radius: 5px;
+
+            background-color:rgba(41, 55, 62, 0.929);
+        }
+
+        a {
+            text-decoration: none; 
+            color: rgb(203, 227, 248); 
+            font-size: 1.1em;
+        }
+
+        /* конец шапки и навигации */
+
+        /* Главная страница */
+        .text{
+            display: grid;
+            grid-template-columns: 50% 50%;
+            grid-template-rows: repeat(8, auto);
+            gap: 10px;
+            justify-content: center;
+
+            width: 70%;
+            margin: 2%;
+            padding: 2%;
+            
+            background-color: rgba(41, 55, 62, 0.929);
+            border-radius: 5px;
+        }
+
+        .main_h2{
+            grid-column: span 2;
+            text-align: center;
+
+            padding: 2%;
+            margin: 0;  
+            border-radius: 5px;
+
+            color: rgb(203, 227, 248);
+            background-color: rgba(140, 166, 180, 0.345);
+        }
+
+        p{
+            display: block;
+            
+            padding: 2%;
+            margin: 0;
+            border-radius: 5px;
+            
+            background-color: rgba(140, 166, 180, 0.345);
+        }
+
+        .text_last{
+            grid-column: span 2;
+            text-align: center;
+        }
+
+        @media (max-width: 600px) {
+            .text {
+                grid-template-columns: 100%; 
+                grid-template-rows: auto; 
+                width: 90%;
+            }
+
+            .text h2,
+            .text p {
+                grid-column: 1 / -1; 
+                font-size: 0.9em;
+            }
+
+            
+        }   
+         
+        /* конец главной страницы */
+         
+        /* Меню */
+        .menu {
+            display: flex;
+            overflow-wrap: break-word;
+            justify-content: space-around;
+            align-items: center;
+            
+            width: 100%;
+            padding: 50px;
+        }
+
+        .table_container{
+            
+            width: 100%;
+            padding: 50px;
+            overflow-x: auto;
+        }
+
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            
+            color: rgb(203, 227, 248);
+            background-color:rgba(41, 55, 62, 0.423);
+            
+        }
+
+        th, td {
+            padding: 15px;
+            border: 3px solid rgb(203, 227, 248);;
+           
+            text-align: center;
+        }
+
+        th {
+            background-color: rgba(41, 55, 62, 0.929);
+            color: rgb(203, 227, 248);
+        }
+
+        .img_meal {
+            max-width: 200px;
+            max-height: 200px;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .menu_meal {
+            text-align: left;
+        }
+
+        .button_menu_sakas {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .button_sakas_text{
+            text-decoration: none;
+            color: rgba(41, 55, 62, 0.929);
+            
+        }
+
+        @media (max-width: 600px) {
+            table{
+                font-size: 15px;
+            }
+        }
+        /* конец меню */
+
+        /* Заказ */
+         .order{
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+
+            width: 80vw;
+            height: auto;
+        }
+
+        .img_sakas {
+            display: block;
+            object-fit: cover;
+            
+            width: 55%;
+            min-width: 290px;
+            height: auto;
+            max-height: 60vh;
+            border-radius: 5px;
+        } 
+
+        h2{
+            color:rgb(26, 28, 29);
+        }
+
+        .form_sakas {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            justify-content: center;
+            
+            box-sizing: border-box;
+            width: 40%;
+            min-width: 290px;
+            padding: 5%;
+            border-radius: 10px;
+            
+            background-color: rgba(90, 94, 95, 0.301);
+        }
+        /* конец заказ */
+
+        /* отзыв */
+        
+        h2 {
+            color: rgb(28, 33, 36);
+        }
+
+        .label {
+            color: rgb(143, 147, 149);
+        }
+
+        .container_otsiv {
+            display: flex;
+            flex-wrap: wrap-reverse;
+            justify-content: space-around;
+            align-items: center;
+            width: 100%;
+            
+        }
+
+         .feedback_form {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 5%;
+            
+            
+            background-color: rgba(35, 34, 34, 0.715);
+        }
+
+        .img_otsiv_left  {
+            order: 1;
+            max-width: 400px;
+            min-width: 290px;
+            width: auto;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .img_otsiv_right {
+            order: -1;
+            max-width: 400px;
+            min-width: 290px;
+            width: auto;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            object-fit: cover;
+            }
+
+
+        @media (max-width: 1195px) {
+            
+            .img_otsiv_left
+            {
+                order: 0;
+            }
+            .feedback_form {
+                order: 1;
+            }
+        } 
+        /* конец отзыв */
+        
+        
+
+        /* подвал */
+        .footer_text {
+            padding: 10px;
+        }
+
+        footer{
+            display: flex;
+            justify-content: space-around;
+            
+            width: 100%;
+            height: 10vh;
+            border-radius: 5px;
+            margin-top: 30px;
+
+            background-color: rgba(41, 55, 62, 0.929);;
+        }
+
+        /* кнопки */
+        .button_send {
+            padding: 10px 20px;
+            background-color: rgba(41, 55, 62, 0.929);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* форма */
+        input, 
+        select,
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 2%;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        /* конец формы */
