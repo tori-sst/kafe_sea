@@ -4,69 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Кафе "SEA"</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family:  sans-serif;
+        }
+       
+    </style>
 </head>
-<body>
-    <header class="start" >
-        
-        <h1> Меню </h1>
-        
-    </header>   
+<body class="flex flex-col items-center justify-between gap-4 h-screen text-[#cbe3f8] bg-[url('wonderful-polynesian-landscape_23-2151913458.avif')]  bg-cover ">
     
-    <nav>
+    <header class="flex justify-center items-center  text-center w-[clamp(290px,75vw,1200px)] mt-[10px] p-4 rounded-[5px] bg-[rgba(41,55,62,0.929)]" >
+        <h1 class="m-0 font-bold text-[clamp(35px,8vw,150px)]">Меню</h1>
+    </header>   
+
+    <nav class="flex justify-between w-[clamp(290px,75vw,350px)] p-[1rem] rounded-[5px] bg-[rgba(41,55,62,0.929)]">
         <a href="index.html">Главная</a>
-        <a href="menu.html" style="text-decoration: none;">Меню</a>
+        <a href="menu.html">Меню</a>
         <a href="sakas.html">Заказ</a>
         <a href="otsiv.html">Отзывы</a>
     </nav>
 
-    <section class="menu">
-        <div class="table_container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Фото блюда</th>
-                    <th>Название и состав блюда</th>
-                    <th>Цена (руб.)</th>
+    <section class="flex wrap-break-word justify-around items-center w-[100vw] p-[50px]">
+        <div class="w-[100vw] p-[50px] overflow-x-scroll">
+        <table class="max-sm:text-[15px] text-[1.1em] w-[60%] border-collapse mx-auto text-[rgb(203,227,248)] bg-[rgba(41,55,62,0.423)]">
+            <thead class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center bg-[rgba(41,55,62,0.929)]">
+                <tr class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                    <th class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">Фото блюда</th>
+                    <th class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">Название и состав блюда</th>
+                    <th class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">Цена (руб.)</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td><img src="hand-holding-drink-beach-against-sky-sunset_1048944-30400447.avif" alt="Коктейль" class="img_meal"></td>
-                    <td class="menu_meal">Экзотический коктейль
-                        <ol>
+                <tr class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                    <td class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                        <img src="hand-holding-drink-beach-against-sky-sunset_1048944-30400447.avif" alt="Коктейль" class=" inline-block max-w-[200px] max-h-[200px] h-auto object-cover">
+                    </td>
+                    <td class="text-left px-5">Экзотический коктейль
+                        <ol class="list-decimal list-inside px-6 ">
                             <li>Лимон</li>
                             <li>Вода</li>
                             <li>Без сахара</li>
                         </ol>
                     </td>
-                    <td>800 руб.
+                    <td class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">800 руб.
                         <br><br>
-                        <button class="button_menu_sakas">
-                            <a href="sakas.html" class="button_sakas_text">Заказать</a>
+                        <button class="py-2.5 px-5 border-none rounded-[5px] bg-white">
+                            <a href="sakas.html" class="no-underline text-[rgba(41,55,62,0.929)] cursor-pointer">Заказать</a>
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <td><img src="hawaiian-pizza-against-tropical-beach-background_975188-64294.avif" alt="Пицца" class="img_meal"></td>
-                    <td class="menu_meal">Морская пицца
-                        <ol>    
+                <tr class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                    <td class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                        <img src="hawaiian-pizza-against-tropical-beach-background_975188-64294.avif" alt="Пицца" class="inline-block max-w-[200px] max-h-[200px] h-auto object-cover">
+                    </td>
+                    <td class="text-left px-5">Морская пицца
+                        <ol class="list-decimal list-inside px-6 ">    
                             <li>Помидоры</li>
                             <li>Курица</li>
                             <li>Ананас</li>
                         </ol>
                     </td>
-                    <td>1200 руб.
+                    <td class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">1200 руб.
                         <br><br>
-                        <button class="button_menu_sakas">
-                            <a href="sakas.html"  class="button_sakas_text">Заказать</a>
+                        <button class="py-2.5 px-5 border-none rounded-[5px] bg-white">
+                            <a href="sakas.html"  class="no-underline text-[rgba(41,55,62,0.929)] cursor-pointer">Заказать</a>
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <td><img src="recept-15588-1240x825.jpg" alt="Фруктовый салат" class="img_meal"></td>
-                    <td class="menu_meal">Свежий фруктовый салат
-                        <ol>    
+                <tr class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                    <td class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                        <img src="recept-15588-1240x825.jpg" alt="Фруктовый салат" class="inline-block max-w-[200px] max-h-[200px] h-auto object-cover">
+                    </td>
+                    <td class="text-left px-5">Свежий фруктовый салат
+                        <ol class="list-decimal list-inside px-6 ">    
                             <li>Банан</li>
                             <li>Яблоко</li>
                             <li>Киви</li>
@@ -74,26 +85,27 @@
                             <li>Апельсин</li>
                         </ol>
                     </td>
-                    <td>600 руб.
+                    <td class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">600 руб.
                         
                         <br><br>
-                        <button class="button_menu_sakas">
-                            <a href="sakas.html"  class="button_sakas_text" >Заказать</a>
+                        <button class="py-2.5 px-5 border-none rounded-[5px] bg-white">
+                            <a href="sakas.html"  class="no-underline text-[rgba(41,55,62,0.929)] cursor-pointer" >Заказать</a>
                         </button>
                     </td>
                 </tr>
-                <tr>
-                    <td><img src="close-up-fish-leaves_1048944-14370828.avif" alt="Жареный лосось" class="img_meal"></td>
-                    <td class="menu_meal">Жареный лосось
-                        <ol>
+                <tr class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                    <td class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">
+                        <img src="close-up-fish-leaves_1048944-14370828.avif" alt="Жареный лосось" class="inline-block max-w-[200px] max-h-[200px] h-auto object-cover"></td>
+                    <td class="text-left px-5">Жареный лосось
+                        <ol class="list-decimal list-inside px-6 ">
                             <li>Лосось свежего улова</li>
                             <li>Зелень местная</li>
                         </ol>
                     </td>
-                    <td>2500 руб.
+                    <td class="p-4 border-[3px] border-solid border-[rgb(203,227,248)] text-center">2500 руб.
                         <br><br>
-                        <button class="button_menu_sakas">
-                            <a href="sakas.html"  class="button_sakas_text">Заказать</a>
+                        <button class="py-2.5 px-5 border-none rounded-[5px] bg-white">
+                            <a href="sakas.html"  class="no-underline text-[rgba(41,55,62,0.929)] cursor-pointer">Заказать</a>
                         </button>
                     </td>
                 </tr>
@@ -101,9 +113,9 @@
         </table>
         </div>
     </section>
-    <footer> 
-        <span class="footer_text">&copy; Кафе Sea</span> 
-        <span class="footer_text">Все права защищены</span>
+    <footer class="flex justify-around w-[100vw] h-[10vh]  mt-[30px] bg-[rgba(41,55,62,0.929)]"> 
+        <span class="p-4">&copy; Кафе Sea</span> 
+        <span class="p-4">Все права защищены</span>
     </footer>
 </body>
 </html>

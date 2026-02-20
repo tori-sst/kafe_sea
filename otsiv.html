@@ -4,37 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Кафе SEA</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family:  sans-serif;
+        }
+       
+    </style>
 </head>
-<body>
-    <header class="start">
-        <h1>Отзывы</h1>
-    </header>
+<body class="flex flex-col items-center justify-between gap-4 h-screen text-[#cbe3f8] bg-[url('wonderful-polynesian-landscape_23-2151913458.avif')]  bg-cover ">
+    
+    <header class="flex justify-center items-center  text-center w-[clamp(290px,75vw,1200px)] mt-[10px] p-4 rounded-[5px] bg-[rgba(41,55,62,0.929)]" >
+        <h1 class="m-0 font-bold text-[clamp(35px,8vw,150px)]">Отзыв</h1>
+    </header>   
 
-    <nav>
+    <nav class="flex justify-between w-[clamp(290px,75vw,350px)] p-[1rem] rounded-[5px] bg-[rgba(41,55,62,0.929)]">
         <a href="index.html">Главная</a>
         <a href="menu.html">Меню</a>
         <a href="sakas.html">Заказ</a>
         <a href="otsiv.html" style="text-decoration: none;">Отзывы</a>
     </nav>
 
-    <section class="container_otsiv">
+    <section class="flex flex-wrap justify-around items-center w-[100vw]">
         
         
-        <form class="feedback_form">
-            <label class="label" for="name">Имя:</label>
-            <input type="text" name="name" id="name"><br><br>
-            <label class="label" for="comment">Комментарий:</label>
-            <textarea name="comment" id="comment" rows="4" placeholder="Напишите Ваш отзыв..."></textarea><br><br>
-            <button type="submit" class="button_send">Отправить отзыв</button>
+        <form class=" flex flex-col justify-around items-center w-[300px] p-4 rounded-[5px] mt-[5%] bg-[rgba(35,34,34,0.715)]">
+            <label class="text-white" for="name">Имя:</label>
+            <input type="text" name="name" id="name" class="w-[100%] box-border p-[2%] rounded-[5px] border border-solid border-white text-[rgba(41,55,62,0.929)]"><br><br>
+            <label class="text-white" for="comment">Комментарий:</label>
+            <textarea name="comment" id="comment" rows="4" placeholder="Напишите Ваш отзыв..." class="w-[100%] box-border p-[2%] rounded-[5px] border border-solid border-white text-[rgba(41,55,62,0.929)]"></textarea><br><br>
+            <button type="submit" class="p-[2%] bg-[rgba(41,55,62,0.929)] text-white border-none rounded-[5px] cursor-pointer w-[100%] box-border">Отправить отзыв</button>
         </form>
-        <img src="star.jpg" alt="Left Image" class="img_otsiv_left">
-        <img src="персонал" alt="Right Image" class="img_otsiv_right">
+        <img src="star.jpg" alt="Left Image" class="order-1 max-lg:order-none max-w-[400px] min-w-[290px] w-auto h-auto m-2 rounded-[5px] object-cover">
+        <img src="персонал" alt="Right Image" class="hidden xl:block -order-1 max-lg:order-1 max-w-[400px] min-w-[290px] w-auto h-auto m-2 rounded-[5px] object-cover">
     </section>
 
-    <footer>
-        <span class="footer_text">© Кафе Sea</span>
-        <span class="footer_text">Все права защищены</span>
+    <footer class="flex justify-around w-[100vw] h-[10vh]  mt-[30px] bg-[rgba(41,55,62,0.929)]"> 
+        <span class="p-4">&copy; Кафе Sea</span> 
+        <span class="p-4">Все права защищены</span>
     </footer>
 </body>
 </html>

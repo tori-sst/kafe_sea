@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Кафе "SEA"</title>
-    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family:  sans-serif;
+        }
+       
+    </style>
 </head>
-<body>
-    <header class="start" >
-        <h1>Заказ</h1>
-    </header>   
+<body class="flex flex-col items-center justify-between gap-4 h-screen text-[#cbe3f8] bg-[url('wonderful-polynesian-landscape_23-2151913458.avif')]  bg-cover ">
     
-    <nav>
+    <header class="flex justify-center items-center  text-center w-[clamp(290px,75vw,1200px)] mt-[10px] p-4 rounded-[5px] bg-[rgba(41,55,62,0.929)]" >
+        <h1 class="m-0 font-bold text-[clamp(35px,8vw,150px)]">Заказ</h1>
+    </header>   
+
+    <nav class="flex justify-between w-[clamp(290px,75vw,350px)] p-[1rem] rounded-[5px] bg-[rgba(41,55,62,0.929)]">
         <a href="index.html">Главная</a>
         <a href="menu.html">Меню</a>
-        <a href="sakas.html"style="text-decoration: none;">Заказ</a>
+        <a href="sakas.html">Заказ</a>
         <a href="otsiv.html">Отзывы</a>
     </nav>
-   <section class="order">
-    <form class="form_sakas">
-            <h2>Оформите заказ:</h2>
-                <input type="text" name="имя" placeholder="Введите ваше имя:"> 
+   <section class="flex flex-wrap justify-center items-center gap-4 w-[80vw] h-auto">
+    <form class="flex flex-col justify-center items-center box-border w-[40%] min-w-[290px] p-[5%] rounded-[5px] bg-[rgba(90,94,95,0.301)]">
+            <h2 class="font-bold text-[1.5em] text-[rgb(26,28,29)] m-4">Оформите заказ:</h2>
+                <input type="text" name="имя" placeholder="Введите ваше имя:" class="w-[100%] box-border p-[2%] rounded-[5px] border border-solid border-white text-[rgba(41,55,62,0.929)]"> 
                 <br><br>
-                <select multiple name="menu" size="1">
+                <select multiple name="menu" size="1" class="w-[100%] box-border p-[2%] rounded-[5px] border border-solid border-white text-[rgba(41,55,62,0.929)]">
             
                     <option value="coctail">Экзотический коктейль</option>
                     <option value="pizza">Морская пицца</option>
@@ -30,19 +37,17 @@
                     <option value="fish">Жареный лосось</option>
                 </select>
                 <br><br>
-                <input type="number" name="номер" placeholder="Введите номер столика:">
+                <input type="number" name="номер" placeholder="Введите номер столика:" class="w-[100%] box-border p-[2%] rounded-[5px] border border-solid border-white text-[rgba(41,55,62,0.929)]">
                 <br><br>
                 
-                <input type="submit" class="button_send">
+                <input type="submit" class="p-[2%] bg-[rgba(41,55,62,0.929)] text-white border-none rounded-[5px] cursor-pointer w-[100%] box-border">
             
             </form>
-            <img src="more-tropiki-okean-plyazh-pesok.webp" alt="море" class="img_sakas">
+            <img src="more-tropiki-okean-plyazh-pesok.webp" alt="море" class="block object-cover w-[55%] min-w-[290px] h-auto max-h-[60vh] rounded-[5px] ">
    </section>
-   
-
-    <footer> 
-        <span class="footer_text">&copy; Кафе Sea</span> 
-        <span class="footer_text">Все права защищены</span>
+   <footer class="flex justify-around w-[100vw] h-[10vh]  mt-[30px] bg-[rgba(41,55,62,0.929)]"> 
+        <span class="p-4">&copy; Кафе Sea</span> 
+        <span class="p-4">Все права защищены</span>
     </footer>
 </body>
 </html>
