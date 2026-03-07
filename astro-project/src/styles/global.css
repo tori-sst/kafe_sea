@@ -3,8 +3,9 @@
   .index-p{
     @apply block max-sm:col-span-full max-sm:text-[0.9em] p-4 m-0 rounded-[5px] bg-[#8ca6b4]/35;
   }
-  .index-mainblock{@apply col-span-2 max-sm:col-span-full max-sm:text-[0.9em] text-center p-4 m-0  bg-[#8ca6b4]/35 text-[#cbe3f8];
-    
+  .index-mainblock
+  {
+    @apply col-span-2 max-sm:col-span-full max-sm:text-[0.9em] text-center p-4 m-0  bg-[#8ca6b4]/35 text-[#cbe3f8];
   }
 
   thead,
