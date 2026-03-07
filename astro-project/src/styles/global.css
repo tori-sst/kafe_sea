@@ -1,0 +1,47 @@
+@import "tailwindcss";
+@layer base {
+  .index-p{
+    @apply block max-sm:col-span-full max-sm:text-[0.9em] p-4 m-0 rounded-[5px] bg-[#8ca6b4]/35;
+  }
+  .index-mainblock{@apply col-span-2 max-sm:col-span-full max-sm:text-[0.9em] text-center p-4 m-0  bg-[#8ca6b4]/35 text-[#cbe3f8];
+    
+  }
+
+  thead,
+  tr,
+  th,
+  td {
+    @apply p-4 border-[3px] border-solid border-[#cbe3f8] text-center;
+  }  
+  .button-menu{
+    @apply py-2.5 px-5 border-none rounded-[5px] bg-white;
+  }
+  .ol-menu{
+    @apply list-decimal list-inside px-6;
+  }
+
+  .img-menu{
+    @apply inline-block max-w-50 max-h-50 h-auto object-cover;
+  }
+
+  input, 
+  select,
+  textarea {
+    @apply w-full box-border p-[2%] rounded-[5px] border border-solid border-white bg-white text-[#29373e]/93;
+  }
+
+  ::placeholder{
+    @apply font-mono
+  }
+  
+  form{
+    @apply  flex flex-col justify-around items-center w-75 p-4 rounded-[5px] mt-[5%] bg-[#232222]/40;
+  }
+  button{
+    @apply p-[2%]  border-none rounded-[5px] cursor-pointer w-full box-border bg-[#29373e]/93 text-white;
+  }
+
+  a {
+    @apply no-underline  cursor-pointer;
+  }
+}
