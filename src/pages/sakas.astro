@@ -1,27 +1,65 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+const responseDishes = await fetch('http://localhost:1337/api/dishes?populate=*');
+const jsonDishes = await responseDishes.json();
+const dishes = jsonDishes.data || [];
+
+
+const responseUI = await fetch('http://localhost:1337/api/ui-components?populate=*');
+const jsonUI = await responseUI.json();
+const uiItems = jsonUI.data || [];
+
+
+const ui: Record<string, string> = {};
+uiItems.forEach((item: any) => {
+
+    const alt = item.alt;
+    const url = item.image?.url;
+    
+    if (alt && url) {
+        ui[alt] = `http://localhost:1337${url}`;
+    }
+});
+
 ---
 <BaseLayout pageTitle="Заказ">
     <section class="flex flex-wrap justify-center items-center gap-4 w-[80vw] h-auto">
-    <form>
+        <form>
             <h2 class="font-semibold text-[1.5em] text-white m-4">Оформите заказ:</h2>
-                <input type="text" name="имя" placeholder="Введите ваше имя:"> 
-                <br><br>
-                <select multiple name="menu" size="1">
-            
-                    <option value="coctail" class="font-mono">Экзотический коктейль</option>
-                    <option value="pizza" class="font-mono">Морская пицца</option>
-                    <option value="salat" class="font-mono">Свежий фруктовый салат</option>
-                    <option value="fish"class="font-mono">Жареный лосось</option>
-                </select>
-                <br><br>
-                <input type="number" name="номер" placeholder="Введите номер столика:" >
-                <br><br>
-                
-                <button type="submit">Сделать заказ</button>
-            
-            </form>
-            <img src="/kafe_sea/images/more-tropiki-okean-plyazh-pesok.webp" alt="море" class="block object-cover w-[55%] min-w-72.5 h-auto max-h-[60vh] rounded-[5px] ">
-   </section>
+            <input type="text" name="имя" placeholder="Введите ваше имя:"> 
+            <br><br>
+            <select id="menu-select" multiple name="menu" size="1" class="font-mono rounded-[5px]">
+                {dishes.map((dish: any) => (
+                    <option value={dish.id} data-price={dish.price} class="m-3">
+                        {dish.name} — {dish.price} руб.
+                    </option>
+                ))}
+            </select>
+            <br><br>
+            <input type="number" name="номер" placeholder="Введите номер столика:">
+            <br><br>
+            <button type="submit">Итого: <span id="total-price">0</span> руб. <br> Сделать заказ</button>
+        </form>
+
+        
+        <img src={ui["order-image"]} alt="order-image" class="block object-cover w-[55%] min-w-72.5 h-auto max-h-[60vh] rounded-[5px]">
+    </section>
+
+    <script>
+        const select = document.getElementById('menu-select') as HTMLSelectElement;
+        const totalDisplay = document.getElementById('total-price');
+
+        if (select && totalDisplay) {
+            select.addEventListener('change', () => {
+                let total = 0;
+                Array.from(select.selectedOptions).forEach(option => {
+                    const price = parseFloat(option.getAttribute('data-price') || '0');
+                    total += price;
+                });
+                totalDisplay.textContent = total.toLocaleString(); 
+            });
+        }
+    </script>
 </BaseLayout>

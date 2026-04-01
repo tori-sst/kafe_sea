@@ -1,20 +1,31 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+console.log('Homepage');
+const response = await fetch('http://localhost:1337/api/home-page?populate=*');
+const json = await response.json();
+
+const content = json.data || [];
+console.log(content.title)
 ---
 <BaseLayout>
     <div class="grid grid-cols-2 grid-rows[repeat(8,auto)] max-sm:grid-cols-[100%] max-sm:grid-rows-[auto] gap-2.5 justify-center w-[clamp(290px,75vw,1200px)] m-4 p-4 rounded-[5px] bg-[#29373e]/93">
                     
-        <h2 class="index-mainblock font-bold text-[30px] max-lg:text-[20px]">Добро пожаловать в наше кафе у моря!</h2> 
-        <p class="index-p">Приглашаем окунуться в мир спокойствия и наслаждения вкусом настоящей морской кухни в нашем уютном кафе на побережье.</p>
-        <p class="index-p">✨ Насладитесь прекрасным видом на море и расслабьтесь в атмосфере гармонии и комфорта. Нас ждёт тихий берег, ласковые волны и изысканные блюда, приготовленные специально для Вас.</p>
-        <p class="index-p">🍲 Наша кухня порадует любителей свежей рыбы, морских деликатесов и экзотических напитков. Каждое блюдо создано с любовью и вниманием к деталям, чтобы подарить Вам незабываемые впечатления от гастрономического путешествия.</p>
-        <p class="index-p">☀️ Забронируйте столик заранее и проведите идеальный вечер у берега моря, слушая шум волн и наслаждаясь волшебством момента вместе с нами.</p>
-        <p class="index-mainblock">Мы ждём Вас каждый день с улыбкой и теплом гостеприимства!</p>
+        <h2 class="index-mainblock font-bold text-[30px] max-lg:text-[20px]">{content.title}</h2> 
+        {content.HomeText?.map((item: any) => (
+      
+        <p class="index-p">
+            {item.icon && <span class="mr-2">{item.icon}</span>}
+            {item.description}</p>
+          ))}
+          
+        <p class="index-mainblock">
+            {content.conclucion?.concl1}
+        </p>
                         
         <p class="index-mainblock">
-            Приятного аппетита и хорошего настроения!<br>
-            ❤️ Ваше Кафе Sea
+            {content.conclucion?.concl2}
         </p>
     </div>
 </BaseLayout>
