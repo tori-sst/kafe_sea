@@ -1,15 +1,19 @@
 ---
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
+
+
+const STRAPI_URL = import.meta.env.STRAPI_URL || 'http://localhost:1337';
+
 console.log('Начало')
 
-const response = await fetch('http://localhost:1337/api/dishes?populate=*');
+
+const response = await fetch(`${STRAPI_URL}/api/dishes?populate=*`);
 const json = await response.json();
 
 console.log('ALL ДАННЫЕ:', json);
 console.log('МАССИВ DATA:', json.data);
 console.log('КОЛИЧЕСТВО БЛЮД:', json.data?.length);
-console.log('img info:', json.data[0].mealimg)
 const dishes = json.data || [];
 ---
 <BaseLayout pageTitle="Меню">
@@ -27,7 +31,8 @@ const dishes = json.data || [];
                     {dishes.map((dish: any) => {
                         
                         const imgUrl = dish.mealimg?.[0]?.url; 
-                        const fullUrl = imgUrl ? `http://localhost:1337${imgUrl}` : null;
+                        
+                        const fullUrl = imgUrl ? `${STRAPI_URL}${imgUrl}` : null;
 
                         return (
                             <tr>
@@ -41,7 +46,6 @@ const dishes = json.data || [];
                                 <td class="text-left px-5">
                                     {dish.name}
                                     <ol class="ol-menu">
-                                       
                                         {dish.ingredient?.map((ing: any) => (
                                             <li>{ing.name}</li>
                                         ))}

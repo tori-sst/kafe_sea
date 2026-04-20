@@ -3,7 +3,8 @@ import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 console.log('Homepage');
-const response = await fetch('http://localhost:1337/api/home-page?populate=*');
+const STRAPI_URL = import.meta.env.STRAPI_URL || 'http://localhost:1337';
+const response = await fetch(`${STRAPI_URL}/api/home-page?populate=*`);
 const json = await response.json();
 
 const content = json.data || [];

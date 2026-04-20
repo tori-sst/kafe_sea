@@ -2,27 +2,29 @@
 import '../styles/global.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const responseDishes = await fetch('http://localhost:1337/api/dishes?populate=*');
+
+const STRAPI_URL = import.meta.env.STRAPI_URL || 'http://localhost:1337';
+
+
+const responseDishes = await fetch(`${STRAPI_URL}/api/dishes?populate=*`);
 const jsonDishes = await responseDishes.json();
 const dishes = jsonDishes.data || [];
 
 
-const responseUI = await fetch('http://localhost:1337/api/ui-components?populate=*');
+const responseUI = await fetch(`${STRAPI_URL}/api/ui-components?populate=*`);
 const jsonUI = await responseUI.json();
 const uiItems = jsonUI.data || [];
 
-
 const ui: Record<string, string> = {};
 uiItems.forEach((item: any) => {
-
     const alt = item.alt;
     const url = item.image?.url;
     
     if (alt && url) {
-        ui[alt] = `http://localhost:1337${url}`;
+        
+        ui[alt] = `${STRAPI_URL}${url}`;
     }
 });
-
 ---
 <BaseLayout pageTitle="Заказ">
     <section class="flex flex-wrap justify-center items-center gap-4 w-[80vw] h-auto">
@@ -43,7 +45,6 @@ uiItems.forEach((item: any) => {
             <button type="submit">Итого: <span id="total-price">0</span> руб. <br> Сделать заказ</button>
         </form>
 
-        
         <img src={ui["order-image"]} alt="order-image" class="block object-cover w-[55%] min-w-72.5 h-auto max-h-[60vh] rounded-[5px]">
     </section>
 
