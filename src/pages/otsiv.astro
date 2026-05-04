@@ -4,9 +4,13 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
 const STRAPI_URL = import.meta.env.STRAPI_URL || 'http://localhost:1337';
+const STRAPI_TOKEN = import.meta.env.STRAPI_TOKEN;
+const responseUI = await fetch(`${STRAPI_URL}/api/ui-components?populate=*`, {
+  headers: {
+    'Authorization': `Bearer ${STRAPI_TOKEN}`
+  }
+});
 
-
-const responseUI = await fetch(`${STRAPI_URL}/api/ui-components?populate=*`);
 const jsonUI = await responseUI.json();
 const uiItems = jsonUI.data || [];
 console.log(uiItems);

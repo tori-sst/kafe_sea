@@ -4,11 +4,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 
 const STRAPI_URL = import.meta.env.STRAPI_URL || 'http://localhost:1337';
-
+const STRAPI_TOKEN = import.meta.env.STRAPI_TOKEN;
+const response = await fetch(`${STRAPI_URL}/api/dishes?populate=*`, {
+  headers: {
+    'Authorization': `Bearer ${STRAPI_TOKEN}`
+  }
+});
 console.log('Начало')
 
-
-const response = await fetch(`${STRAPI_URL}/api/dishes?populate=*`);
 const json = await response.json();
 
 console.log('ALL ДАННЫЕ:', json);

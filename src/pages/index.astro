@@ -4,16 +4,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 console.log('Homepage');
 const STRAPI_URL = import.meta.env.STRAPI_URL || 'http://localhost:1337';
-const response = await fetch(`${STRAPI_URL}/api/home-page?populate=*`);
+const STRAPI_TOKEN = import.meta.env.STRAPI_TOKEN;
+const response = await fetch(`${STRAPI_URL}/api/home-page?populate=*`, {
+  headers: {
+    'Authorization': `Bearer ${STRAPI_TOKEN}`
+  }
+});
 const json = await response.json();
 
 const content = json.data || [];
 console.log(content.title)
 ---
 <BaseLayout>
-    <div class="grid grid-cols-2 grid-rows[repeat(8,auto)] max-sm:grid-cols-[100%] max-sm:grid-rows-[auto] gap-2.5 justify-center w-[clamp(290px,75vw,1200px)] m-4 p-4 rounded-[5px] bg-[#29373e]/93">
+    <div class="grid grid-cols-2 grid-rows[repeat(8,auto)] max-sm:grid-cols-[100%] max-sm:grid-rows-[auto] gap-2.5 justify-center w-[clamp(290px,75vw,1200px)] m-4 p-4 rounded-[5px]  bg-[#29373e]/93">
                     
-        <h2 class="index-mainblock font-bold text-[30px] max-lg:text-[20px]">{content.title}</h2> 
+        <h2 class="index-mainblock font-bold text-[30px] max-lg:text-[20px] text-white">{content.title}</h2> 
         {content.HomeText?.map((item: any) => (
       
         <p class="index-p">

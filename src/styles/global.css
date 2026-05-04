@@ -38,11 +38,29 @@
   form{
     @apply  flex flex-col justify-around items-center w-75 p-4 rounded-[5px] mt-[5%] bg-[#232222]/40;
   }
-  button{
-    @apply p-[2%]  border-none rounded-[5px] cursor-pointer w-full box-border bg-[#29373e]/93 text-white;
-  }
+  button {
+    @apply p-[2%] border-none rounded-[5px] cursor-pointer w-full box-border bg-[#29373e]/93 text-white transition-all ;
+}
+
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+button:active {
+    transform: scale(0.97);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
 
   a {
     @apply no-underline  cursor-pointer;
   }
+  .nav-link {
+    @apply relative text-white no-underline py-1 px-2 rounded transition-all duration-200 inline-block;
+}
+
+.nav-link:hover {
+    @apply bg-gray-600/50;
+    transform: scale(1.01);
+}
 }

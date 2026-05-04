@@ -13,6 +13,7 @@ const { pageTitle = "Кафе SEA" } = Astro.props;
     <style>
         body {
             font-family:  sans-serif;
+            color: #cbe3f8;
         }
        
     </style>
@@ -20,19 +21,19 @@ const { pageTitle = "Кафе SEA" } = Astro.props;
 <body class="flex flex-col items-center justify-between gap-4 h-screen text-[#cbe3f8] bg-[url('/images/wonderful-polynesian-landscape_23-2151913458.avif')]  bg-cover ">
     
     <header class="flex justify-center items-center  text-center w-[clamp(290px,75vw,1200px)] mt-2.5 p-4 rounded-[5px] bg-[rgba(41,55,62,0.929)]" >
-        <h1 class="m-0 font-bold text-[clamp(35px,8vw,150px)]">{pageTitle}</h1>
+        <h1 class="m-0 font-bold text-[clamp(35px,8vw,150px)] text-white">{pageTitle}</h1>
     </header>   
 
     <nav class="flex justify-between w-[clamp(290px,75vw,350px)] p-4 rounded-[5px] bg-[rgba(41,55,62,0.929)]">
-        <a  href="/">Главная</a>
-        <a  href="/menu">Меню</a>
-        <a  href="/sakas">Заказ</a>
-        <a  href="/otsiv">Отзывы</a>
+        <a href="/" class="nav-link">Главная</a>
+        <a href="/menu" class="nav-link">Меню</a>
+        <a href="/sakas" class="nav-link">Заказ</a>
+        <a href="/otsiv" class="nav-link">Отзывы</a>
     </nav>
     <slot />
     <footer class="flex justify-around w-screen h-[10vh]  mt-7.5 bg-[rgba(41,55,62,0.929)]"> 
-        <span class="p-4">&copy; Кафе Sea</span> 
-        <span class="p-4">Все права защищены</span>
+        <span class="p-4 text-white">&copy; Кафе Sea</span> 
+        <span class="p-4 text-white">Все права защищены</span>
     </footer>
 </body>
 </html>
